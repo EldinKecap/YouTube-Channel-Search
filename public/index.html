@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <script src="https://apis.google.com/js/api.js"></script> -->
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./style.css">
+        <script defer src="./main.js"></script>
+        <link rel="icon" href="./images/youTubeIcon.png">
+        <title>YouTube Channel Search</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body class="grey lighten-2">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <div class="row black card-panel valign-wrapper">
+      <h1 class="col s6 center-align white-text valign-wrapper"><img src="./images/youTubeIcon.png" > YouTube Search</h1> 
+      <div id="root" class="col s6 right right-align"></div>
+    </div>
+    <div class="row valign-wrapper center-align" id="searchbarWrapper" >
+      <input type="text" class="col s4" placeholder="Enter channel name"  id="searchbar">
+      <button class="btn-large waves-effect waves-light red hoverable"  id="search">Search <i class="material-icons right">search</i></button>
+    </div>
+    <div id="error" class="grey-text lighten-2"></div>
+    <div id="results"></div>
+    <!--  -->         
+      <!-- <a href="#videoResults" class="modal-trigger btn"> show</a> -->
+      <div class="modal" id="videoResults">
+        <div class="modal-content">
+          <h1>Video Results</h1>
+        </div>
+        <div class="modal-footer">
+          <!-- <a href="" class="modal-close btn">Close</a> -->
+        </div>
+      </div>
+      <!-- Card -->
+      <!-- <div class="row">
+        <div class="col s12 l6">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://i.ytimg.com/vi/KZdQjDipyGk/hqdefault.jpg" >
+            </div>
+            <div class="card-content">
+              <span class="card-title">yo</span>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis nam eligendi cumque distinctio ipsam officia maxime incidunt ipsum voluptas. Dolor rem adipisci fuga laudantium corrupti eaque a dolorum, beatae necessitatibus.</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Card -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.modal').modal()
+      });
+    </script>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
