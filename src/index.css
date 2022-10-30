@@ -112,3 +112,13 @@ a{
   align-items:center;
 }
 
+.videoDescription{
+  height: 150px;
+  overflow: hidden;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.card-content{
+  height: 300px;
+}

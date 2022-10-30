@@ -21,6 +21,7 @@ function App() {
       setUser({});
       document.getElementById('signInDiv').hidden = false;
       document.getElementById('searchbarWrapper').style.visibility = 'hidden';
+      document.getElementById('results').innerHTML = '';
   }
 
   useEffect(()=>{
@@ -44,7 +45,7 @@ function App() {
     <div id = "signInDiv"></div>
     {
       Object.keys(user).length != 0 &&
-      <button class='btn' onClick={(e)=>handleSignOut(e)}>Sign Out</button>
+      <button class='btn hoverable red waves-effect waves-light' onClick={(e)=>handleSignOut(e)}>Sign Out</button>
     }
     {
       user && 

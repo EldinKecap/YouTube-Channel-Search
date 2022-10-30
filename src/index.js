@@ -181,9 +181,9 @@ function generateVideoCard(video) {
   title.innerHTML = video.snippet.title;
   title.classList.add('flow-text', 'card-title');
   description.innerHTML = video.snippet.description;
-  description.classList.add('flow-text');
+  description.classList.add('flow-text','videoDescription');
   publishTime.innerHTML = `Upload time: ${
-      video.snippet.publishTime.replace('T', ' ').replace('Z', '')
+      video.snippet.publishTime.replace('T', ' ').replace('Z', '').replace(/[-]/g,'/')
   }`;
   publishTime.classList.add('flow-text');
   image.setAttribute('src', video.snippet.thumbnails.high.url);
