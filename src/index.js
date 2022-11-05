@@ -26,8 +26,10 @@ async function search() {
   if (userInputValue != '') {
       userInputValue.trim().replace(' ', '%20');
       let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${userInputValue}&key=AIzaSyBDfzpEUdss3yp6v9ml5KDuBG7FzUT8HAA`;
+      startLoader('channels')
       let response = await fetch(url);
       data = await response.json();
+      stopLoader();
       results.innerHTML = '';
       console.log(data);
   } else {
@@ -135,10 +137,12 @@ async function fetchVideos(id, pageToken = 0) {
       response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${id}&maxResults=10&pageToken=${pageToken}&key=AIzaSyBDfzpEUdss3yp6v9ml5KDuBG7FzUT8HAA`);
       data = await response.json();
   }
+  stopLoader();
   return data;
 }
 
 async function showVideosButtonEvent(item) {
+  startLoader('video');
   let videoData = await fetchVideos(item.id.channelId);
   localStorage.setItem('channelId', item.id.channelId);
   let container = document.createElement('div');
@@ -216,6 +220,7 @@ function createPageButtons() {
     prevPageButton.innerHTML = 'Back';
     prevPageButton.classList.add('btn');
     prevPageButton.addEventListener('click', async () => {
+        startLoader('video')
         let videoData = await fetchVideos(channelId,prevPageToken);
         let container = document.createElement('div');
         let videoResults = document.querySelector('.modal-content');
@@ -240,6 +245,7 @@ function createPageButtons() {
       nextPageButton.innerHTML = 'Next';
       nextPageButton.classList.add('btn');
       nextPageButton.addEventListener('click', async () => {
+          startLoader('video')
           let videoData = await fetchVideos(channelId,nextPageToken);
           let container = document.createElement('div');
           let videoResults = document.querySelector('.modal-content');
@@ -260,6 +266,22 @@ function createPageButtons() {
   }
  
 
+}
+
+function startLoader(location) {
+    let results;
+    if (location == 'video') {
+        results = document.querySelector('.modal-content');
+    }else{
+        results = document.querySelector('#results');
+    }
+    let loader = document.createElement('div');
+    loader.classList.add('loader');
+    results.appendChild(loader);
+}
+
+function stopLoader() {
+    document.querySelector('.loader').remove();    
 }
 
 let searchBtn = document.getElementById('search');
